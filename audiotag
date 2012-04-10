@@ -317,6 +317,7 @@ sub rename_file {
 		a => $info->{ARTIST},
 		t => $info->{TITLE},
 		A => $info->{ALBUM},
+		Y => $info->{YEAR},
 		o => basename($file)
 	);
 	#Should work correctly.
@@ -333,7 +334,7 @@ sub rename_file {
 	}
 
 	(my $type = $file) =~ s/.*\././;
-	(my $new_name = $rename_pattern) =~ s/%([TatAo])/$directives{$1}/ge;
+	(my $new_name = $rename_pattern) =~ s/%([TatAYo])/$directives{$1}/ge;
 	# MCM - convert slashes in full path to dashes
     #$new_name =~ s/\//-/g;
 
