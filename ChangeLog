@@ -1,3 +1,6 @@
+2012.04.10  Niklas Nilsson <splitfeed at gmail dot com>
+	* Added %Y for year in rename pattern
+
 2008.06.05  Ryan McGuigan <ryan at tempestgames dot com>
 	* patch from Simon Wibberly "simon dot wibberly at metawork dot uk"
 	  - addes support for matching the year from the file name
