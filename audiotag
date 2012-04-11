@@ -290,6 +290,7 @@ Option:
                                     %a: artist name
                                     %t: song title
                                     %A: album name
+                                    %Y: album year
 				  You can specify subdirectories in the rename 
 				  pattern. "%a - %A/%T. %t" will rename and move
 				  the files. "%a -%A/" moves the files to new
