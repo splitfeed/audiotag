@@ -311,10 +311,24 @@ USAGE
 sub rename_file {
 	my ($file, $info) = @_;
 	my $_pretend = $pretend ? "I would be " : "";
+    
+    # Make sure TRACKNUM is a number or nn/nn
+    my $track = '';
+    if ($info->{TRACKNUM} =~ /^\d+$/) {
+		# print "Numeric track: ",$info->{TRACKNUM},"\n";
+		$track = $info->{TRACKNUM};
+
+	# If TRACKNUM is in format x/y, consider x to be TRACKNUM
+    } elsif ($info->{TRACKNUM} =~ m|^(\d+)/\d+$|) {
+		$track = $1;
+		
+    }
+    
+    
     #This needs an addition to correctly remove Slashes in pathnames in
     #artist/title names, but leave user supplied slashes correct.
 	my %directives = (
-		T => sprintf("%02d", $info->{TRACKNUM}),
+		T => sprintf("%02d", $track),
 		a => $info->{ARTIST},
 		t => $info->{TITLE},
 		A => $info->{ALBUM},
@@ -819,4 +833,3 @@ WTF
 	}
 	else { exit Usage() }
 }
-
